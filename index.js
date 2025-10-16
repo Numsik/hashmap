@@ -51,6 +51,7 @@ class Hashmap{
 
 
     has(key){
+        return this.get(key) !== null;
 
     }
 }
