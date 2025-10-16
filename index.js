@@ -34,5 +34,23 @@ class Hashmap{
         }
 
     }
-        
+    get(key){
+        const index = this.hash(key);
+        const bucket = this.buckets[index];
+
+
+        for (let item of bucket){
+            if(item.key === key){
+                return item.value;
+            }
+        }
+        return null;
+
+    }
+
+
+
+    has(key){
+
+    }
 }
