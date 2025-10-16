@@ -1,11 +1,10 @@
-function stringToNumber(string) {
-  let hashCode = 0;
+class Hashmap{
+    constructor(capacity = 16, loadfactor = 0.75){
+        this.capacity = capacity;
+        this.loadfactor = loadfactor;
+        this.size = 0;
+        this.buckets = new Array(this.capacity).fill(null).map(() => []);
 
-  const primeNumber = 31;
-  for (let i = 0; i < string.length; i++) {
-    hashCode = primeNumber * hashCode + string.charCodeAt(i);
-  }
-
-  return hashCode;
+    }
+        
 }
-console.log(stringToNumber('Honza'))
