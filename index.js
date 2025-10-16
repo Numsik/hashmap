@@ -65,12 +65,33 @@ class Hashmap{
 
 
 
-const map = new Hashmap();
+const test = new Hashmap();
 
-map.set("apple", "red");
-map.set("banana", "yellow");
-map.set("car", "blue");
+test.set('apple', 'red')
+test.set('banana', 'yellow')
+test.set('carrot', 'orange')
+test.set('dog', 'brown')
+test.set('elephant', 'gray')
+test.set('frog', 'green')
+test.set('grape', 'purple')
+test.set('hat', 'black')
+test.set('ice cream', 'white')
+test.set('jacket', 'blue')
+test.set('kite', 'pink')
+test.set('lion', 'golden')
+
+test.set('apple', 'green');   // přepíše 'red' → 'green'
+test.set('banana', 'brown');  // přepíše 'yellow' → 'brown'
+
+console.log(test.size);      // 12
+console.log(test.get('apple'));  // 'green'
+console.log(test.get('banana')); // 'brown'
 
 
-console.log(map.get("banana"));
-console.log(map.get("water"))
+test.set('moon', 'silver'); // toto spustí resize (kapacita 16 → 32)
+
+console.log(test.size);     // 13
+console.log(test.capacity); // 32
+console.log(test.get('moon'));   // 'silver'
+console.log(test.get('apple'));  // 'green'
+console.log(test.get('lion'));   // 'golden'
