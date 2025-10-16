@@ -9,11 +9,10 @@ class Hashmap{
     hash(key){
         let hashCode = 0;
         for (let i = 0; i < key.length; i++){
-            const char = key.charCodeaT(i)
-            hashCode = hashCode * 31 + char
+            const char = key.charCodeAt(i);
+            hashCode = hashCode * 31 + char;
         }
         return hashCode % this.capacity;
-
     }
     set(key, value){
 
@@ -47,11 +46,31 @@ class Hashmap{
         return null;
 
     }
-
-
-
     has(key){
         return this.get(key) !== null;
+    }
+    resize(newCapacity){
+        const oldBuckets = this.buckets;
+        this.capacity = newCapacity;
+        this.buckets = new Array(this.capacity).fill(null).map(() => []);
+        this.size = 0;
 
+        for (const bucket of oldBuckets){
+            for (const item of bucket){
+                this.set(item.key, item.value)
+            }
+        }
     }
 }
+
+
+
+const map = new Hashmap();
+
+map.set("apple", "red");
+map.set("banana", "yellow");
+map.set("car", "blue");
+
+
+console.log(map.get("banana"));
+console.log(map.get("water"))
